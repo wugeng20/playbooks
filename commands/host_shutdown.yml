@@ -1,0 +1,5 @@
+- hosts: "{{ hosts }}"
+  tasks:
+    - name: 机器关机
+      command: init 0
+      tags: shutdown

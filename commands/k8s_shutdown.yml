@@ -1,4 +1,0 @@
-- hosts: k8server
-  tasks:
-    - name: 机器关机
-      command: init 0
