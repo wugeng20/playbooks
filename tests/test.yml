@@ -1,1 +1,4 @@
-- hosts:k8s-master-node
+- hosts:{{ server }}
+  tasks:
+    - name: test ansible
+      command: echo "hello world"
