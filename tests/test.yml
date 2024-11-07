@@ -1,4 +1,6 @@
-- hosts: {{ server }}
+- hosts: "{{ hosts }}"
+
   tasks:
     - name: test ansible
-      command: echo "hello world"
+      command: echo "test ansible" >>/tmp/test.txt
+      tags: test
