@@ -5,7 +5,7 @@
       command: touch /tmp/ansible_yml_test.txt
       tags: touch
     - name: echo ansible constainer
-      command: echo '这是ansible一个测试' > /tmp/ansible_yml_test.txt
+      shell: echo '这是ansible一个测试' > /tmp/ansible_yml_test.txt
       tags: echo
     - name: cat test file
       command: cat /tmp/ansible_yml_test.txt
