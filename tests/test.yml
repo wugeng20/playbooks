@@ -1,6 +1,9 @@
 - hosts: "{{ hosts }}"
 
   tasks:
-    - name: test ansible
+    - name: touch test file
       command: touch /tmp/ansible_yml_test.txt
-      tags: test
+      tags: touch
+    - name: echo ansible constainer
+      command: echo "这是ansible一个测试" > /tmp/ansible_yml_test.txt
+      tags: echo
