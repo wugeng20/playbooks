@@ -7,3 +7,9 @@
     - name: echo ansible constainer
       command: echo "这是ansible一个测试" > /tmp/ansible_yml_test.txt
       tags: echo
+    - name: cat test file
+      command: cat /tmp/ansible_yml_test.txt
+      tags: cat
+    - name: rm test file
+      command: rm -rf /tmp/ansible_yml_test.txt
+      tags: rm
