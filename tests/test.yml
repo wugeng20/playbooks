@@ -2,5 +2,5 @@
 
   tasks:
     - name: test ansible
-      command: echo "test ansible" >>/tmp/test.txt
+      command: touch /tmp/ansible_yml_test.txt
       tags: test
