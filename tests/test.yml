@@ -1,4 +1,4 @@
-- hosts:{{ server }}
+- hosts: {{ server }}
   tasks:
     - name: test ansible
       command: echo "hello world"
