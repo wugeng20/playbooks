@@ -1,15 +1,15 @@
 ---
 # 思源笔记docker项目目录
-- siyuan_dir: /opt/siyuan
+siyuan_dir: /opt/siyuan
 
 # 思源笔记容器workspace目录
-- workspace_dir_container: /siyuan/SiYuan/
+workspace_dir_container: /siyuan/SiYuan/
 
 # 思源笔记秘钥
-- siyuan_secret: 1234567890
+siyuan_secret: 1234567890
 
 # 思源笔记docker镜像
-- image: b3log/siyuan:latest
+image: b3log/siyuan:latest
 
 # 思源笔记docker容器端口
-- port: 6806
+port: 6806
