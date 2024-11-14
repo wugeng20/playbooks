@@ -1,0 +1,7 @@
+---
+# 重启dcoker服务
+- name: restart docker
+  systemd:
+    name: docker
+    state: restarted
+    tages: restart

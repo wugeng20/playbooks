@@ -1,0 +1,12 @@
+---
+# 测试Playbook
+- hosts: test
+  tasks:
+    - name: Check if Docker is installed
+      command: docker --version
+      register: docker_version
+      changed_when: false
+
+    - name: Display Docker version
+      debug:
+        msg: "Docker version: {{ docker_version.stdout }}"

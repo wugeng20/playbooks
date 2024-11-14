@@ -1,0 +1,47 @@
+---
+# 添加阿里云Docker仓库
+- name: Add Aliyun Docker repository
+  yum_repository:
+    name: docker-ce-aliyun
+    description: Docker CE Stable - $basearch
+    baseurl: https://mirrors.aliyun.com/docker-ce/linux/centos/7/$basearch/stable
+    gpgcheck: yes
+    gpgkey: https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
+    enabled: yes
+  become: yes
+
+# 安装Docker CE和Docker CE CLI
+- name: Install Docker CE, Docker CE CLI, and containerd.io
+  yum:
+    name: 
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+  become: yes
+
+# 安装Docker Compose
+- name: Install Docker Compose Plugin
+  yum:
+    name: docker-compose-plugin
+    state: present
+  become: yes
+
+# 配置Docker使用阿里云镜像
+- name: Configure Docker to use Aliyun mirror
+  copy:
+    content: |
+      {
+        "registry-mirrors": ["{{ docker_mirror }}"]
+      }
+    dest: /etc/docker/daemon.json
+  become: yes
+  notify: Restart Docker service
+
+# 启动并启用Docker服务
+- name: Ensure Docker service is started and enabled
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes

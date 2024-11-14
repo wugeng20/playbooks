@@ -1,0 +1,3 @@
+---
+# docker 镜像源
+docker_mirror: "https://docker.1panel.dev"
