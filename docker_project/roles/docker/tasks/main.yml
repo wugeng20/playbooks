@@ -2,9 +2,8 @@
 # 删除docker历史记录包
 - name: Ensure docker history packages are removed.
   yum: 
-    name: "{{ item }}"
+    name: "{{ docker_old }}"
     state: removed
-  with_items: "{{ docker_old }}"
   become: yes
 
 # 安装Docker CE的依赖

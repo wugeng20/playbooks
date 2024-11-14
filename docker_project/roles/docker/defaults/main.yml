@@ -15,12 +15,13 @@ docker_packages:
   - yum-utils
   - device-mapper-persistent-data
   - bash-completion
+  - epel-release
 
 docker_ce_packages:
   - docker-ce
-  - docker-compose
   - docker-ce-cli
   - containerd.io
+  - docker-compose
 
 # docker 镜像加速
 docker_registry_mirrors: ["https://docker.1panel.dev"]
