@@ -1,10 +1,10 @@
 version: '3.9'
 services:
   siyuan:
-    image: {{ image }}
+    image: {{ siyuan_image }}
     command: ['--workspace={{ workspace_dir_container }}','--lang=zh_CN','--accessAuthCode={{ siyuan_secret }}']
     ports:
-      - {{ port }}:6806
+      - {{ siyuan_port }}:6806
     restart: unless-stopped
     volumes:
       - {{ siyuan_dir }}/workspace:/siyuan/SiYuan

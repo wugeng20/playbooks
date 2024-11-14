@@ -9,7 +9,7 @@ workspace_dir_container: /siyuan/SiYuan/
 siyuan_secret: 1234567890
 
 # 思源笔记docker镜像
-image: b3log/siyuan:latest
+siyuan_image: b3log/siyuan:latest
 
 # 思源笔记docker容器端口
-port: 6806
+siyuan_port: 6806
