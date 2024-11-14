@@ -37,11 +37,3 @@
     dest: /etc/docker/daemon.json
   become: yes
   notify: Restart Docker service
-
-# 启动并启用Docker服务
-- name: Ensure Docker service is started and enabled
-  systemd:
-    name: docker
-    state: started
-    enabled: yes
-  become: yes
