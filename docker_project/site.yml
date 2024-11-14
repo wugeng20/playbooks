@@ -1,3 +1,6 @@
 ---
 - name: Deploy Docker
   import_playbook: deploy_docker.yml
+
+- name: Deploy SiYuan
+  import_playbook: deploy_siyuan.yml

@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  siyuan:
+    image: {{ image }}
+    command: ['--workspace={{ workspace_dir_container }}','--lang=zh_CN','--accessAuthCode={{ siyuan_secret }}']
+    ports:
+      - {{ port }}:6806
+    restart: unless-stopped
+    volumes:
+      - {{ siyuan_dir }}/workspace:/siyuan/SiYuan
+    environment:
+      - PUID=1000
+      - PGID=1000
