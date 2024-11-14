@@ -1,0 +1,3 @@
+---
+- name: Deploy Docker
+  import_playbook: deploy_docker.yml

@@ -1,0 +1,6 @@
+---
+# 部署docker
+- hosts: test
+  roles:
+    - docker
+  become: yes

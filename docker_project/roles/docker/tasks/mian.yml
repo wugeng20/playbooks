@@ -1,0 +1,35 @@
+---
+# 删除docker历史记录包
+- name: Ensure docker history packages are removed.
+  yum: 
+    name: "{{ item }}"
+    state: removed
+  with_items: "{{ docker_old }}"
+  become: yes
+
+# 安装Docker CE的依赖
+- name: Ensure required packages are installed.
+  yum:
+    name: "{{ docker_packages }}"
+    state: present
+  become: yes
+
+# 添加Docker CE的yum仓库
+- name: Ensure docker packages are installed.
+  shell: "yum-config-manager --add-repo {{ docker_repo }}"
+  become: yes
+
+# 安装Docker CE和Docker CE CLI
+- name: Install Docker CE, Docker CE CLI, and containerd.io
+  yum:
+    name: "{{ docker_ce_packages }}"
+    state: present
+  become: yes
+
+# 配置Docker镜像加速
+- name: Configure docker startup parameters.
+  template:
+    src: daemon.json.j2
+    dest: "/etc/docker/daemon.json"
+  become: yes
+  notify: Restart Docker service
