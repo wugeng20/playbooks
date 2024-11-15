@@ -1,0 +1,10 @@
+---
+# 修改dns配置文件
+- name: 修改dns配置文件
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
