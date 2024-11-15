@@ -19,7 +19,6 @@ python_packages:
   - tk-devel
   - gcc
   - make
-  - wget
 
 # pip3安装源
 pip3_mirror: "https://pypi.tuna.tsinghua.edu.cn/simple"
