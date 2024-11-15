@@ -1,0 +1,26 @@
+---
+# python下载地址
+python_download_url: "https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz"
+
+# 下载python安装包存放目录
+python_download_dir: "/tmp/"
+
+# python安装目录
+python_install_dir: "/usr/local/python3"
+
+# python安装源码编译需要的编译环境
+python_packages:
+  - zlib-devel
+  - bzip2-devel
+  - openssl-devel
+  - ncurses-devel
+  - sqlite-devel
+  - readline-devel
+  - tk-devel
+  - gcc
+  - make
+  - wget
+
+# pip3安装源
+pip3_mirror: "https://pypi.tuna.tsinghua.edu.cn/simple"
+pip3_trusted_host: " pypi.tuna.tsinghua.edu.cn"

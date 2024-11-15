@@ -1,0 +1,93 @@
+---
+# 安装Python的依赖
+- name: Ensure required packages are installed.
+  yum:
+    name: "{{ python_packages }}"
+    state: present
+  become: yes
+
+# 创建Python安装目录
+- name: Create Python install directory.
+  file:
+    path: "{{ python_install_dir }}"
+    state: directory
+    mode: '0755'
+  become: yes
+
+# 下载Python包
+- name: Download Python package.
+  get_url:
+    url: "{{ python_download_url }}"
+    dest: "{{ python_download_dir }}/Python-{{ python_version }}.tgz"
+    mode: '0755'
+    timeout: 60
+  become: yes
+
+# 解压Python包
+- name: Extract Python source code
+  unarchive:
+    src: "{{ python_download_dir }}/Python-{{ python_version }}.tgz"
+    dest: "{{ python_download_dir }}"
+    remote_src: yes
+  become: yes
+
+# 执行configure命令
+- name: Configure Python build.
+  command: "{{ python_download_dir }}/Python-{{ python_version }}/configure --prefix={{ python_install_dir }}"
+  args:
+    creates: "{{ python_install_dir }}"
+  become: yes
+
+# 执行make和make install命令
+- name: Build and install Python.
+  command: "make && make install"
+  args:
+    chdir: "{{ python_download_dir }}/Python-{{ python_version }}"
+  become: yes
+
+# 检查是否需要备份和创建python3软链接
+- name: Check if /usr/bin/python3 exists
+  stat:
+    path: /usr/bin/python3
+  register: python3_stat
+
+- name: Backup /usr/bin/python3 if it exists
+  command: mv /usr/bin/python3 /usr/bin/python3.bak
+  when: python3_stat.stat.exists
+  become: yes
+
+# 配置软链接
+- name: Create Python symlink.
+  file:
+    src: "{{ python_install_dir }}/bin/python{{ python_version }}"
+    dest: "/usr/bin/python3"
+    state: link
+  become: yes
+
+# 检查是否需要备份和创建pip软链接
+- name: Check if /usr/bin/pip3 exists
+  stat:
+    path: /usr/bin/pip3
+  register: pip3_stat
+
+- name: Backup /usr/bin/pip3 if it exists
+  command: mv /usr/bin/pip3 /usr/bin/pip3.bak
+  when: pip3_stat.stat.exists
+  become: yes
+
+# 配置pip软链接
+- name: Create pip symlink.
+  file:
+    src: "{{ python_install_dir }}/bin/pip{{ python_version }}"
+    dest: "/usr/bin/pip3"
+    state: link
+  become: yes
+
+# 配置pip3源
+- name: Configure pip3 source.
+  command: "pip3 config set global.index-url {{ pip3_mirror }}"
+  become: yes
+
+- name: Configure pip3 trusted host.
+  command: "pip3 config set global.trusted-host {{ pip3_trusted_host }}"
+  become: yes
