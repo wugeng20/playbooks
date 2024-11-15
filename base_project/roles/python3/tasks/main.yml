@@ -60,7 +60,7 @@
 # 配置软链接
 - name: Create Python symlink.
   file:
-    src: "{{ python_install_dir }}/bin/python{{ python_version }}"
+    src: "{{ python_install_dir }}/bin/python3"
     dest: "/usr/bin/python3"
     state: link
   become: yes
@@ -79,7 +79,7 @@
 # 配置pip软链接
 - name: Create pip symlink.
   file:
-    src: "{{ python_install_dir }}/bin/pip{{ python_version }}"
+    src: "{{ python_install_dir }}/bin/pip3"
     dest: "/usr/bin/pip3"
     state: link
   become: yes
