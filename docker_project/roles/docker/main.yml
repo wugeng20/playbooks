@@ -1,6 +1,6 @@
 ---
 # 部署docker
-- hosts: test
+- hosts: {{ hosts }}
   roles:
     - docker
   become: yes

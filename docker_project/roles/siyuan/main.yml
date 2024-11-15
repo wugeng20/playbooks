@@ -1,6 +1,6 @@
 ---
 # 部署思源笔记，如果没安装docker，请先必须安装docker、docker-compose
-- hosts: test
+- hosts: {{ hosts }}
   roles:
     - siyuan
   become: yes

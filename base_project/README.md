@@ -11,7 +11,7 @@ Base是一个系统基础配置自动化部署的Ansible Playbook，它可以帮
 - 网络配置：配置网络接口、DNS、NTP等。
 - 软件安装：安装常用的软件包，如Python3、Ansible等。
 - 系统配置：配置系统参数，如文件系统、内核参数等。
- 
+
 ## 要求
 
 此角色仅在RHEL及其衍生产品上运行。
@@ -60,15 +60,13 @@ ansible-playbook -i inventory site.yml
 
 # 【推荐】模块化安装，根据需要选择安装服务
 # 单独部署Python3
-ansible-playbook -i inventory deploy_python3.yml
+ansible-playbook -i inventory ./roles/python3/main.yml -e "hosts=test" <-<hosts>主组名
+ansible-playbook -i inventory ./roles/dns/main.yml -e "hosts=test" <-<hosts>主组名
 ......
 ```
 
 ## 注意事项
 
+- [非常重要] ansible.cfg文件中，请确保 `[defaults]`部分中的 `roles_path`参数指向roles目录。
 - 请确保您的Ansible版本与Playbook兼容。
 - 请根据您的实际环境修改inventory文件中的主机信息。
-
-```
-
-```

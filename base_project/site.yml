@@ -1,3 +1,7 @@
 ---
-- name: Deploy Python3
-  import_playbook: deploy_python3.yml
+- name: Deploy Base Project
+  vars:
+    hosts: test
+  roles:
+    - dns
+    - python3

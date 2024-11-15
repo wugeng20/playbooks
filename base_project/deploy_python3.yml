@@ -1,8 +1,0 @@
----
-# 部署Python3
-- hosts: test
-  vars:
-    python_version: 3.9.9
-  roles:
-    - python3
-  become: yes
