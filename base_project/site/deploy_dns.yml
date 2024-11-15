@@ -1,0 +1,8 @@
+---
+# 配置DNS
+- hosts: test
+  vars:
+    python_version: 3.9.9
+  roles:
+    - dns
+  become: yes
