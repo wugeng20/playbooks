@@ -38,18 +38,12 @@
     creates: "{{ python_install_dir }}"
   become: yes
 
-# 执行make命令
-- name: Build and install Python.
-  command: "make"
-  args:
-    chdir: "{{ python_download_dir }}/Python-{{ python_version }}"
-  become: yes
-
-# 执行make install命令
-- name: Install Python.
-  command: "make install"
-  args:
-    chdir: "{{ python_download_dir }}/Python-{{ python_version }}"
+- name: Compile and install Python
+  shell: |
+    cd "{{ python_download_dir }}/Python-{{ python_version }}"
+    ./configure --prefix={{ python_install_dir }}
+    make
+    make install
   become: yes
 
 # 检查是否需要备份和创建python3软链接
