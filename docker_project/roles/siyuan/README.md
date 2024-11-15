@@ -44,4 +44,9 @@ Centos 7.9 X64
 cd /opt/siyuan
 sudo docker-compose up -d
 docker-compose down
+---------------
+cd playbooks/base_project
+
+ansible-playbook -i inventory ./roles/siyuan/main.yml -e "target_hosts=test" <-<hosts>主组名
+
 ```

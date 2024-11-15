@@ -1,0 +1,6 @@
+---
+# 配置DNS
+- hosts: "{{ target_hosts }}"
+  roles:
+    - yum
+  become: yes

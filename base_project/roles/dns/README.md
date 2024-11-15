@@ -36,5 +36,8 @@ dns_servers:
 ```
 
 ## 使用
+```shell
+cd playbooks/base_project
 
-无
+ansible-playbook -i inventory ./roles/dns/main.yml -e "target_hosts=test" <-<hosts>主组名
+```

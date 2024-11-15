@@ -1,0 +1,30 @@
+---
+# 检查是否需要备份 CentOS-Base.repo 文件
+- name: Check if CentOS-Base.repo exists
+  stat:
+    path: /etc/yum.repos.d/CentOS-Base.repo
+  register: repo_stat
+
+- name: Backup CentOS-Base.repo if it exists
+  command: mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+  when: repo_stat.stat.exists
+  become: yes
+
+# 下载新的 CentOS-Base.repo 文件
+- name: Download repos package.
+  get_url:
+    url: "{{ repo_download_url }}"
+    dest: "/etc/yum.repos.d/CentOS-Base.repo"
+    mode: '0644'
+    timeout: 60
+  become: yes
+
+# 清理 YUM 缓存
+- name: Clean yum cache
+  command: yum clean all
+  become: yes
+
+# 更新 YUM 缓存
+- name: Update yum cache
+  command: yum makecache
+  become: yes

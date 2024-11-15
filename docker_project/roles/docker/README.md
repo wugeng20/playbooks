@@ -64,7 +64,7 @@ docker_compose_url: "https://github.moeyy.xyz/https://github.com/docker/compose/
 ## 使用
 
 ```shell
-systemctl start docker
-systemctl stop docker
-systemctl status docker
+cd playbooks/base_project
+
+ansible-playbook -i inventory ./roles/docker/main.yml -e "target_hosts=test" <-<hosts>主组名
 ```

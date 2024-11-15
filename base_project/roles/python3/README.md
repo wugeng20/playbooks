@@ -62,5 +62,7 @@ pip3_trusted_host: " pypi.tuna.tsinghua.edu.cn"
 ## 使用
 
 ```shell
-python3 -V
+cd playbooks/base_project
+
+ansible-playbook -i inventory ./roles/python3/main.yml -e "target_hosts=test" <-<hosts>主组名
 ```

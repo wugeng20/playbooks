@@ -39,7 +39,7 @@ cd playbooks/<playbook_project>
 ansible-playbook -i inventory site.yml
 
 # 【推荐】模块化安装，根据需要选择安装服务
-ansible-playbook -i inventory ./roles/xxxx/main.yml -e "hosts=test" <-<hosts>主组名
+ansible-playbook -i inventory ./roles/xxxx/main.yml -e "target_hosts=test" <-<hosts>主组名
 ......
 ```
 
