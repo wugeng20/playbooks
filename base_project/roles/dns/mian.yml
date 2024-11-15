@@ -1,6 +1,6 @@
 ---
 # 配置DNS
-- hosts: "{{ hosts }}"
+- hosts: "{{ target_hosts }}"
   roles:
     - dns
   become: yes

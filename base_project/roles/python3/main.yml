@@ -1,6 +1,6 @@
 ---
 # 部署Python3
-- hosts: "{{ hosts }}"
+- hosts: "{{ target_hosts }}"
   vars:
     python_version: 3.9.9
   roles:

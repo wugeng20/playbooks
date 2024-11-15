@@ -63,10 +63,10 @@ ansible-playbook -i inventory site.yml
 
 # 【推荐有Docker/Docker-Compose下使用】模块化安装，根据需要选择安装服务
 # 单独部署Docker、Docker-Compose服务
-ansible-playbook -i inventory ./roles/docker/main.yml -e "hosts=test" <-<hosts>主组名
+ansible-playbook -i inventory ./roles/docker/main.yml -e "target_hosts=test" <-<hosts>主组名
 
 # 有docker、docker-compose的情况下，单独部署思源笔记服务，没有Docker则报错
-ansible-playbook -i inventory ./roles/siyuan/main.yml -e "hosts=test" <-<hosts>主组名
+ansible-playbook -i inventory ./roles/siyuan/main.yml -e "target_hosts=test" <-<hosts>主组名
 ......
 ```
 

@@ -60,8 +60,8 @@ ansible-playbook -i inventory site.yml
 
 # 【推荐】模块化安装，根据需要选择安装服务
 # 单独部署Python3
-ansible-playbook -i inventory ./roles/python3/main.yml -e "hosts=test" <-<hosts>主组名
-ansible-playbook -i inventory ./roles/dns/main.yml -e "hosts=test" <-<hosts>主组名
+ansible-playbook -i inventory ./roles/python3/main.yml -e "target_hosts=test" <-<hosts>主组名
+ansible-playbook -i inventory ./roles/dns/main.yml -e "target_hosts=test" <-<hosts>主组名
 ......
 ```
 
