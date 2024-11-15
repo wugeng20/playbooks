@@ -1,6 +1,9 @@
 ---
 # python下载地址
-python_download_url: "https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz"
+# python_download_url: "https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz"
+
+# 国内：https://mirrors.aliyun.com/python-release/source/Python-3.9.9.tgz
+python_download_url: "https://mirrors.aliyun.com/python-release/source/Python-{{ python_version }}.tgz"
 
 # 下载python安装包存放目录
 python_download_dir: "/tmp/"

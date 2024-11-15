@@ -55,6 +55,6 @@ ansible-playbook -i inventory deploy_siyuan.yml
 
 # 联系方式
 
-如有任何问题，请通过以下方式联系我们：
+如有任何问题，请通过以下方式联系我：
 
 - 邮箱：1431258805@qq.com
