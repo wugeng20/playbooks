@@ -38,9 +38,16 @@
     creates: "{{ python_install_dir }}"
   become: yes
 
-# 执行make和make install命令
+# 执行make命令
 - name: Build and install Python.
-  command: "make && make install"
+  command: "make"
+  args:
+    chdir: "{{ python_download_dir }}/Python-{{ python_version }}"
+  become: yes
+
+# 执行make install命令
+- name: Install Python.
+  command: "make install"
   args:
     chdir: "{{ python_download_dir }}/Python-{{ python_version }}"
   become: yes
