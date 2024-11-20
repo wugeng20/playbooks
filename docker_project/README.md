@@ -13,6 +13,7 @@ Docker项目自动化部署的Ansible Playbook。
 
 - roles/docker: Docker、Docker-Compose
 - roles/siyuan: 思源笔记
+- roles/metabase: Metabase BI可视化系统
 
 ## 要求
 
