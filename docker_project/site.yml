@@ -4,5 +4,6 @@
     hosts: test
   roles:
     - docker
+    - docker-compose
     - siyuan
     - metabase

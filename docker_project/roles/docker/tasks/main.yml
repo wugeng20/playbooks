@@ -25,15 +25,6 @@
     state: present
   become: yes
 
-# 安装Docker Compose
-- name: Ensure Docker Compose is installed.
-  get_url:
-    url: "{{ docker_compose_url | replace('$(uname -s)', ansible_facts['system']) | replace('$(uname -m)', ansible_facts['machine']) }}"
-    dest: /usr/local/bin/docker-compose
-    mode: '0755'
-    timeout: 60
-  become: yes
-
 # 配置Docker镜像加速
 - name: Configure docker startup parameters.
   template:

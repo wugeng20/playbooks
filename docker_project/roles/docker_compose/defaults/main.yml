@@ -1,0 +1,6 @@
+---
+# docker-compose版本
+docker_compose_version: "v2.30.3"
+
+# docker-compose下载地址国内加速
+docker_compose_url: "https://ghproxy.net/https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-$(uname -s)-$(uname -m)"

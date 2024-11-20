@@ -1,6 +1,6 @@
 # Ansible Role: docker
 
-安装docker、docker-compose
+安装docker
 
 ## 介绍
 
@@ -45,12 +45,6 @@ docker_ce_packages:
 
 # docker 镜像加速
 docker_registry_mirrors: ["https://docker.1panel.dev"]
-
-# docker-compose版本
-docker_compose_version: "v2.30.3"
-
-# docker-compose下载地址国内加速
-docker_compose_url: "https://github.moeyy.xyz/https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-$(uname -s)-$(uname -m)"
 ```
 
 ## Example Playbook
