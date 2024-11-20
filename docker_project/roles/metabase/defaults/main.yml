@@ -1,0 +1,9 @@
+---
+# 项目目录
+metabase_dir: /opt/metabase
+
+# 镜像
+metabase_image: metabase/metabase:latest
+
+# 端口
+metabase_port: 8100

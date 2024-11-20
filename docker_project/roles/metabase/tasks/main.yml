@@ -1,0 +1,17 @@
+# 创建docker项目目录
+- name: Create Metabase directory
+  file:
+    path: "{{ metabase_dir }}"
+    state: directory
+    mode: '0755'
+
+# 配置docker-compose.yml
+- name: Copy Metabase Docker Compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ metabase_dir }}/docker-compose.yml"
+
+# 启动docker容器
+- name: Start Metabase Docker containers
+  command: docker-compose -f {{ metabase_dir }}/docker-compose.yml up -d
+  become: yes

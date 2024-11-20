@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  metabase:
+    image: {{ metabase_image }}
+    container_name: metabase
+    restart: unless-stopped
+    ports:
+      - "{{ metabase_port }}:3000"
+    volumes:
+      - {{ metabase_dir }}/data:/metabase-data
+    environment:
+      MB_DB_FILE: /metabase-data/metabase.db
